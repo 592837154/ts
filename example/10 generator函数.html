@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义函数
+function *day() {
+	// 一天做的事
+	yield '起床';
+	yield '吃饭';
+	yield '上学';
+	yield '放学';
+	yield '吃饭';
+	return '睡觉';
+}
+// 执行状态函数
+var state = day();
+// 遍历状态
+for (var item of state) {
+	console.log(item)
+}
+// 重新定义状态
+var state = day()
+// 通过next遍历
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+console.log(state.next())
+</script>
+</body>
+</html>

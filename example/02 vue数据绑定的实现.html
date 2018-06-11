@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<h2>{{intro}}</h2>
+	</div>
+<script type="text/javascript">
+// 应该有数据 M
+var data = {
+	title: '',
+	intro: '',
+	// 定义备份数据
+	_data: {}
+}
+// 定义模板 V
+var tpl = document.getElementById('app').innerHTML;
+
+// VM
+// 定义特性
+Object.defineProperties(data, {
+	title: {
+		// 取值方法
+		get: function() {
+			// 备份中获取数据
+			return this._data.title;
+		},
+		// 取值方法
+		set: function(val) {
+			this._data.title = val;
+			// 更新视图
+			formatTpl()
+		}
+	},
+	intro: {
+		// 取值方法
+		get: function() {
+			return this._data.intro;
+		},
+		// 取值方法
+		set: function(val) {
+			this._data.intro = val;
+			// 更新视图
+			formatTpl()
+		}
+	}
+})
+// 用数据去更新视图
+function formatTpl() {
+	// 用data数据，更新tpl视图
+		// 用正则替换内容
+	var result = tpl.replace(/\{\{(\w+)\}\}/g, function(match, $1) {
+		// 没有这个数据，返回空字符串
+		return data[$1] || ''
+	})
+	// 并将结果渲染到页面中
+	document.getElementById('app').innerHTML = result;
+}
+// 测试
+data.title = '爱创课堂'
+data.intro = '专业前端培训学校'
+
+</script>
+</body>
+</html>

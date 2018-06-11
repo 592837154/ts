@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<script type="text/javascript">
+// 获取div
+var divs = document.getElementsByTagName('div');
+// console.log(divs)
+
+// 实现from方法
+Array.icktFrom = function(arrlike, fn) {
+	// 返回一个新数组，成员就是类数组对象的成员
+	var result =[];
+	// 遍历类数组对象
+	for (var i = 0; i < arrlike.length; i++) {
+		// i 表示索引值 arrlike[i] 表示第i个成员
+		if (fn) {
+			// fn传递两个参数
+			result.push(fn(arrlike[i], i))
+		} else {
+			// 添加成员值
+			result.push(arrlike[i])
+		}
+	}
+	// 返回结果
+	return result
+}
+
+
+// 转换数组
+// var arr = Array.from(divs, function(item, index) {
+var arr = Array.icktFrom(divs, function(item, index) {
+	item.innerHTML = index + '|' + index
+	// console.log(this, arguments)
+	return index;
+})
+console.log(arr)
+// 遍历divs
+arr.forEach(function(item) {
+	console.log(item)
+})
+</script>
+</body>
+</html>

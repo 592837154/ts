@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义字符串
+var str = '爱创课堂';
+// console.log(str.repeat(3))
+// console.log(str)
+// 兼容IE
+if (!String.prototype.repeat) {
+	String.prototype.repeat = function(num) {
+		// 定义结果
+		var result = '';
+		// 重复原始字符串
+		for (var i = 0; i < num; i++) {
+			// this指向原始字符串
+			result += this;
+		}
+		// 返回结果
+		return result;
+	}
+}
+alert(str.repeat(3))
+alert(str)
+</script>
+</body>
+</html>

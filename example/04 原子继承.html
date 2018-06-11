@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义类
+function Book(title) {
+	this.title = title;
+}
+Book.prototype.getTitle = function() {
+	return this.title;
+}
+// 定义对象
+var book = new Book('javascript 设计模式');
+console.log(book)
+// 继承book对象
+var jsbook = Object.create(book, {
+	color: {
+		value: 'red'
+	}
+});
+// jsbook.title = '面试题'
+console.log('js book', jsbook)
+
+// 实现原子继承方法
+function create(obj) {
+	// 定义继承类
+	function F() {}
+	// var F = obj.constructor;
+	// 原型链继承了obj
+	F.prototype = obj;
+	// 返回实例化对象
+	// 返回的是对象，就是一个寄生工厂方法，或者原子继承
+	return new F();
+	// 返回F就是一个简化版的寄生式继承
+	// return F;
+}
+var jsbook = create(book);
+console.log(jsbook)
+// 可以覆盖属性和方法
+jsbook.title = '面试题'
+console.log(jsbook.getTitle())
+
+
+
+</script>
+</body>
+</html>

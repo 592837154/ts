@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script type="text/javascript">
+// 获取div
+var doms = document.getElementsByTagName('div');
+// 创建数组
+var arr = [1, 2, 3];
+// Array类的原型是doms的原型么
+console.log(Array.prototype.isPrototypeOf(doms))
+console.log(Array.prototype.isPrototypeOf(arr))
+// 都继承了对象的原型
+console.log(Object.prototype.isPrototypeOf(doms))
+console.log(Object.prototype.isPrototypeOf(arr))
+// 获取数组的原型
+console.log(arr.__proto__)
+console.log(Object.getPrototypeOf(arr))
+console.log(Object.getPrototypeOf(arr) === arr.__proto__)
+</script>
+</body>
+</html>

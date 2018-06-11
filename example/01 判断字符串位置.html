@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义一个字符串
+// 			0 1 2 3 4 5 6 7 8910111213
+var str = '这是一个神奇的网站-爱创课堂';
+// 是否以这是开头
+// console.log(str.startsWith('这是'))
+// console.log(str.startsWith('一个', 2))
+// 是否以爱创课堂结尾
+// console.log(str.endsWith('爱创课堂'))
+// console.log(str.endsWith('网站', 9), 999)
+// 是否包含神奇
+// console.log(str.includes('神奇'))
+// console.log(str.includes('神奇', 2))
+// console.log(str.includes('神奇', 4), 444)
+
+/**
+ * 实现startsWith方法
+ * @str 	原始字符串
+ * @subStr 	子字符串
+ * @pos 	截取位置
+ * return 	是否开头
+ **/ 
+function startsWith(str, subStr, pos) {
+	// 可以用indexOf,也可以用正则
+	// 创建正则
+	var re = new RegExp('^' + subStr)
+	// 截取字符串
+	var dealStr = str.slice(pos);
+	// 判断正则
+	return re.test(dealStr);
+}
+// console.log(startsWith(str, '这是', 4))
+// console.log(startsWith(str, '一个'))
+
+// 兼容IE
+if (!String.prototype.startsWith) {
+	// 为IE创建一个
+	String.prototype.startsWith = function(str, pos) {
+		// 检测字符串实例化对象，是否包含pos
+		// 定义正则
+		// var re = new RegExp('^' + str);
+		// // 截取字符串
+		// var dealStr = this.slice(pos);
+		// return re.test(dealStr)
+		return new RegExp('^' + str).test(this.slice(pos))
+	}
+}
+// alert(str.startsWith('这是'))
+alert(str.startsWith('这是'))
+alert(str.startsWith('一个', 2))
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<!-- <script type="text/javascript" src="demo.es"></script> -->
+<script type="text/javascript">
+// 定义函数
+// var demo = function() {
+// 	console.log('success')
+// }
+// 箭头函数
+// var demo = () => {
+// 	console.log('success')
+// }
+// demo()
+// 箭头函数无法使用arguments
+// var dmeo = (...arg) => {
+// 	// 我们可以使用三个点语法代替
+// 	console.log(arg)
+// 	// console.log(arguments)
+// }
+// dmeo(1, 2, 3, 4, 5)
+
+// 1  如果参数集合中只有一个参数，可以省略参数集合()
+// 求所有参数之和
+// function demo() {
+// 	// 定义结果
+// 	var result = 0;
+// 	for (var i = 0; i < arguments.length; i++) {
+// 		result += arguments[i]
+// 	}
+// 	return result
+// }
+// var demo = (...arg) => {
+// 	return arg.reduce((res, item) => res + item)
+// }
+// console.log(demo(1, 2, 3, 4, 5, 6))
+// var demo = msg => {
+// 	console.log('hello ' + msg)
+// }
+// demo('ickt')
+
+// 2 如果函数体中，只有函数的返回值，可以省略函数体{}以及return关键字
+// 计算数组每个成员的平方
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let result = arr.map(item => item * item * item)
+// console.log(result)
+
+// 构造函数
+// function Player() {
+// 	this.color = 'red'
+// }
+// 箭头函数定义构造函数
+// var Player = () => {
+// 	this.color = 'red'
+// }
+// // 原型方法
+// Player.prototype.getColor = function() {
+// 	return this.color;
+// }
+// // 实例化
+// let pl = new Player();
+// console.log(pl.color)
+// console.log(pl.getColor())
+
+// 3 箭头函数的作用域永远是定义时的作用域。
+// var demo = function() {
+// 	console.log(this)
+// }
+// var test = function() {
+// 	console.log(this)
+// }
+// 严格模式下
+// 'use strict'
+// var demo = function() {
+// 	console.log(this)
+// }
+// var test = () => {
+// 	console.log(this)
+// }
+// demo();
+// test();
+
+</script>
+<!-- 编译嵌入在html中的 -->
+<!-- <script type="text/x-es">
+var dmeo = () => {
+	console.log(arguments)
+}
+dmeo(1, 2, 3, 4, 5)
+</script>
+<script type="text/javascript">
+var _arguments = arguments;
+
+var dmeo = function dmeo() {
+	console.log(_arguments);
+};
+</script> -->
+</body>
+
+<script type="text/javascript">
+"use strict"
+// 定义对象
+let obj = {
+	// 普通函数
+	fn1: function() {
+		console.log(11, this)
+	},
+	// ES6语法函数
+	fn2() {
+		console.log(22, this)
+	},
+	// 箭头函数
+	fn3: () => {
+		console.log(33, this)
+	},
+	// 普通函数
+	fn4: function() {
+		console.log(44, this)
+		// 箭头函数
+		let fn5 = () => {
+			console.log(55, this)
+		}
+		fn5()
+	},
+	ickt: {
+		fn6: () => {
+			console.log(666, this)
+		}
+	}
+}
+
+let demo = {
+	color: 'green'
+}
+obj.ickt.fn6()
+
+// 说出作用域结果
+obj.fn1.bind(demo)()	// demo
+obj.fn2.bind(demo)()	// demo
+obj.fn3.bind(demo)()	// window
+obj.fn4.bind(demo)()	// demo demo
+
+</script>
+<script type="text/javascript">
+	
+
+
+
+
+
+// 说出作用域结果
+// obj.fn1()	// obj
+// obj.fn2()	// obj
+// obj.fn3()	// window
+// obj.fn4()	// obj obj
+
+// 严格模式
+// obj.fn1()	// obj
+// obj.fn2()	// obj
+// obj.fn3()	// window
+// obj.fn4()	// obj obj
+
+
+// obj.fn1.call(demo)	// demo
+// obj.fn2.call(demo)	// demo
+// obj.fn3.call(demo)	// window
+// obj.fn4.call(demo)	// demo demo
+
+// 严格模式
+// obj.fn1.call(demo)	// demo
+// obj.fn2.call(demo)	// demo
+// obj.fn3.call(demo)	// window
+// obj.fn4.call(demo)	// demo demo
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义数据
+let color = 'red';
+let num = 100;
+// 定义对象
+// let obj = {
+// 	// 如果key与变量同名，可以省略key和冒号
+// 	color,
+// 	num
+// }
+//  定义对象
+let obj = {
+	color, 
+	num,
+	// 定义属性的时候，可以使用表达式
+	['ickt' + color]: 200,
+	// 定义方法的时候，可以省略冒号和function关键字
+	getColor() {
+		console.log(this.color)
+	}
+}
+
+
+// console.log(obj, obj['ickt' + color])
+// console.log(obj)
+// obj.getColor()
+
+
+// console.log(0 / 1 === -0 / 1)
+// console.log(Object.is(0 / 1, -0 / 1))
+// console.log('=================')
+// console.log(+'abc' === 0 / 0)
+// console.log(Object.is(+'abc', 0 / 0))
+console.log(1 / 0 === 2 / 0)	// true
+console.log(Object.is(1 / 0, 2 / 0))
+console.log(100 === 100.00)	// true
+console.log(Object.is(100, 100.00))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button id="btn">demo</button>
+<script type="text/javascript">
+// 事件，ajax，定时器，
+var p = new Promise((resolve, reject) => {
+	// 实现异步操作
+	setTimeout(function() {
+		// 成功
+		// resolve(100, 200)
+		// 失败
+		reject('fail', 100)
+		console.log('done')
+	}, 1000)
+});
+// 第二个异步操作
+var p2 = new Promise((resolve, reject) => {
+	btn.onclick = function() {
+		console.log('click btn')
+		resolve('click')
+	}
+});
+// 监听多个用all
+Promise.all([p, p2]).then(
+	// 成功
+	(...arg) =>  console.log('success', arg), 
+	// 失败
+	(...arg) => console.log('fail', arg)
+)
+
+// 2秒之后订阅回调函数
+// setTimeout(function() {
+// 	console.log('2秒之后订阅回调函数')
+// 	p.then(arg => console.log(arg))
+// }, 2000)
+// 在外部定义回调函数，监听结果
+// p.then(
+// 	// 成功
+// 	(...arg) => {
+// 		 console.log('success', arg)
+// 		 return 'hello'
+// 	}, 
+// 	// 失败
+// 	(...arg) => console.log('fail', arg)
+// )
+// // 在then后面订阅的回调函数的参数将由前面的then方法回调函数返回值定义
+// .then(
+// 	(...arg) => console.log('second', arg)
+// )
+</script>
+</body>
+</html>

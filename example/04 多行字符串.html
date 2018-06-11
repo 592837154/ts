@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div id="ickt"></div>
+<script type="text/javascript">
+// // 定义字符串
+// console.log('as\nhd\'f');
+// // ES6多行字符串
+// console.log(`hello 
+// 	i 	ck'"t`)
+
+// var str = 'ickt'
+// console.log(`hello ${str.toUpperCase()}`)
+
+
+// 定义数据
+var data = [
+	{
+		"title": "电影节礼包",
+		"description": "赢50元券",
+		"id": "1",
+		"url": "01.png"
+	},
+	{
+		"title": "10元毕业游",
+		"description": "学生过暑期",
+		"id": "2",
+		"url": "02.png"
+	},
+	{
+		"title": "旅拍跳楼价",
+		"description": "0元住城堡",
+		"id": "3",
+		"url": "03.png"
+	}
+]
+// 渲染模板的结果
+var html = '';
+// 遍历数据，格式化tpl
+for (var i = 0; i < data.length; i++) {
+	// 定义模块
+	html += `
+		<li>
+			<a href="#/detail/${data[i].id}">
+				<h3 class="color-${i}">${data[i].title}</h3>
+				<p>${data[i].description}</p>
+				<img src="img/ad/${data[i].url}" alt="">
+			</a>
+		</li>
+	`
+}
+// 渲染到页面中
+document.getElementById('ickt').innerHTML = `<ul class="ad clearfix">${html}</ul>`
+</script>
+</body>
+</html>

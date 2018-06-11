@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义类
+var Player = function() {
+	this.x = 100;
+	this.y = 200;
+}
+// 原型属性
+Player.prototype.color = 'red'
+Player.prototype.getColor = function() {
+	return this.color;
+}
+// 实例化
+var pl = new Player();
+
+// 遍历属性
+// for (var i in pl) {
+// 	// 过滤出自身属性
+// 	if (pl.hasOwnProperty(i)) {
+// 		console.log(i, pl[i])
+// 	}	
+// }
+
+// 设置特性
+Object.defineProperties(pl, {
+	x: {
+		value: 500,
+		enumerable: false
+	},
+	num: {
+		value: 20
+	},
+	title: {
+		get: function() {
+			return '爱创课堂'
+		}
+	},
+	intro: {}
+})
+
+// 获取所有自身属性
+var result = Object.getOwnPropertyNames(pl);
+
+// 遍历result,查看每一个属性的特性
+result.forEach(function(item, index, arr) {
+	var property = Object.getOwnPropertyDescriptor(pl, item)
+	console.log(item, property)
+})
+// console.log(result)
+
+</script>
+</body>
+</html>

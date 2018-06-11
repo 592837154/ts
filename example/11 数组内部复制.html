@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 创建数组
+var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(arr.copyWithin(2, 5, 8))
+// console.log(arr)
+/***
+ * 实现copyWithin
+ * @pos 	粘贴的位置
+ * @start 	复制的起始位置
+ * @end 	复制结束位置
+ *****/ 
+Array.prototype.icktWithIn = function (pos, start, end) {
+	// 复制成员
+	// var arr = this.slice(start, end);
+	// // 插入的原数组中，并删除相应的成员
+	// // this.splice(pos, end - start, )
+	// // 为将数组转换成参数，我们要使用apply方法
+	// // 所以还要将pos, end - start，在放入arr数组的前面
+	// var args = [pos, end - start].concat(arr)
+	// // 或者是调用unshift
+	// // 执行splice删除成员，并插入成员
+	// this.splice.apply(this, args)
+	// // 返回this
+	// return this;
+	// 一句话实现
+	return this.splice.apply(this, [pos, end - start].concat(this.slice(start, end))), this;
+}
+console.log(arr.icktWithIn(2, 5, 8), 222)
+console.log(arr)
+</script>
+</body>
+</html>

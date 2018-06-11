@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// // 定义set对象
+// var set = new Set([1, 2, 3, 2, 1, 1, 2, '2']);
+// // 添加成员
+// set.add(2)
+// set.add('ickt')
+// console.log(set.keys())
+// console.log(set.values())
+// console.log(set.entries())
+// // 遍历
+// for (var i of set) {
+// 	console.log(i)
+// }
+// console.log(set)
+
+// 创建weakset对象
+// var set = new WeakSet([document, window, window]);
+// console.log(set)
+
+// 创建map对象
+var map = new Map();
+// 添加成员
+map.set(window, 100).set(function() {}, 50).set(true, 'abc').set(null, undefined)
+console.log(map)
+console.log(map.keys())
+console.log(map.values())
+console.log(map.entries())
+
+// 创建WeakMap对象
+// var wm = new WeakMap();
+// // 添加成员
+// wm.set(window, 200)
+// wm.set([], 200)
+// wm.set({}, 200)
+// wm.set(function() {}, 200)
+// console.log(wm)
+</script>
+</body>
+</html>

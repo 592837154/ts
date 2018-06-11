@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 创建五个数字
+var num1 = 0 / 1; // 0
+var num2 = -0 / 1; // -0
+var num3 = 0 / 0; // NaN
+var num4 = 1 / 0; // Infinity
+var num5 = -1 / 0; // -Infinity
+
+// 判断结果
+// console.log(isNaN(num1))					// 0 			false
+// console.log(isNaN(num3))					// NaN 			true
+// console.log(isNaN(num5))					// -Infinity	false
+// console.log(isNaN(''))						// '' 			false
+// console.log(isNaN('100abc'))				// '100abc'		true
+// console.log(isNaN(+'100abc'))				// +'100abc'	true
+// console.log(isNaN(parseInt('100abc')))	// parseInt('100abc') false
+// console.log(isNaN(Math.floor('100abc')))// Math.floor('100abc') true
+// 
+// console.log(Number.isNaN(num1))					// 0 			false		
+// console.log(Number.isNaN(num3))					// NaN 			true
+// console.log(Number.isNaN(num5))					// -Infinity	false
+// console.log(Number.isNaN(''))					// '' 			false
+// console.log(Number.isNaN('100abc'))				// '100abc'		false
+// console.log(Number.isNaN(+'100abc'))			// +'100abc'	true
+// console.log(Number.isNaN(parseInt('100abc')))	// parseInt('100abc') false 
+// console.log(Number.isNaN(Math.floor('100abc')))// Math.floor('100abc') true
+// 判断是否有限
+// console.log(isFinite(num1))					// 0 			true
+// console.log(isFinite(num3))					// NaN 			false
+// console.log(isFinite(num5))					// -Infinity	false
+// console.log(isFinite(''))					// '' 			true
+// console.log(isFinite('100abc'))				// '100abc'		false
+// console.log(isFinite(+'100abc'))			// +'100abc'	false
+// console.log(isFinite(parseInt('100abc')))	// parseInt('100abc') true
+// console.log(isFinite(Math.floor('100abc')))	// Math.floor('100abc') false
+// console.log(isFinite(100))					// 100 			true
+// console.log(isFinite(100.00))				// 100.00 		true
+// console.log(isFinite(Math.PI))				// Math.PI 		true
+// console.log(isFinite(1 / 3))				// 1 / 3 		true
+
+// console.log(Number.isFinite(num1))					// 0 		true	
+// console.log(Number.isFinite(num3))					// NaN 		false	
+// console.log(Number.isFinite(num5))					// -Infinity false	
+// console.log(Number.isFinite(''))					// '' 		false
+// console.log(Number.isFinite('100abc'))				// '100abc'	false
+// console.log(Number.isFinite(+'100abc'))				// +'100abc' false
+// console.log(Number.isFinite(parseInt('100abc'))) // parseInt('100abc') true
+// console.log(Number.isFinite(Math.floor('100abc'))) 	// Math.floor('100abc') false
+// console.log(Number.isFinite(100))					// 100 	true		
+// console.log(Number.isFinite(100.00))				// 100.00 	true	
+// console.log(Number.isFinite(Math.PI))				// Math.PI 	true	
+// console.log(Number.isFinite(1 / 3))					// 1 / 3 	true
+
+
+// 判断整型
+console.log(Number.isInteger(num1))					// 0 			true
+console.log(Number.isInteger(num3))					// NaN 			false
+console.log(Number.isInteger(num5))					// -Infinity	false
+console.log(Number.isInteger(''))					// '' 			false
+console.log(Number.isInteger('100abc'))				// '100abc'		false
+console.log(Number.isInteger(+'100abc'))			// +'100abc'	false
+console.log(Number.isInteger(parseInt('100abc')))	// parseInt('100abc') true
+console.log(Number.isInteger(Math.floor('100abc')))	// Math.floor('100abc') false
+console.log(Number.isInteger(100))					// 100 			true
+console.log(Number.isInteger(100.00))				// 100.00 		true
+console.log(Number.isInteger(Math.PI))				// Math.PI 		false
+console.log(Number.isInteger(1 / 3))				// 1 / 3 		false
+</script>
+</body>
+</html>

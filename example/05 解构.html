@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/underscore.js"></script>
+<script type="text/javascript" src="lib/backbone.js"></script>
+<script type="text/javascript">
+var obj = {
+	// 定义属性
+	color: 'red',
+	getColor: function() {
+		console.log(this)
+		return this.color
+	}
+}
+// 以前访问数据
+// console.log(obj.color)
+// console.log(obj.getColor())
+// 解构对象
+// var { color, getColor } = obj;
+// 解构的变量，可以直接使用
+// console.log(color, window.color)
+// color = 'pink';
+// console.log(obj.color, color)
+// console.log(obj.color = 'green')
+// console.log(color)
+// 解构的方法，作用域变量
+// console.log(getColor())
+
+// 使用backbone创建视图和模型
+// var view = new Backbone.View();
+// var model = new Backbone.Model();
+// 先解构，再创建
+// let { View, Model } = Backbone;
+// 解构后，新增了全局变量
+// console.log(new View())
+// console.log(new Model())
+
+</script>
+<script type="text/javascript">
+// 数组解构
+// var colors = ['red', 'green', 'blue', 'pink', 'orange', 'yellow', 'yellowgreen', 'skyblue', 'gold'];
+// var colors = [];
+// 解构
+// let [red, green, ...color] = colors
+// console.log(red)
+// console.log(green)
+// console.log(color)
+</script>
+</body>
+</html>

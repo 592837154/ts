@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 数组解构
+var colors = ['red', 'green', 'blue', 'pink', 'orange', 'yellow', 'yellowgreen', 'skyblue', 'gold'];
+// 解构
+let [red, green, ...color] = colors;
+// 获取剩余参数
+function demo(...arg) {
+	console.log(arg)
+}
+// 传递参数
+demo(red, green, ...color, red, green)
+
+
+// 创建数组
+var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+/***
+ * 实现copyWithin
+ * @pos 	粘贴的位置
+ * @start 	复制的起始位置
+ * @end 	复制结束位置
+ *****/ 
+Array.prototype.icktWithIn = function (pos, start, end) {
+	return this.splice(pos, end - start, ...this.slice(start, end)), this;
+	// 一句话实现
+	// return this.splice.apply(this, [pos, end - start].concat(this.slice(start, end))), this;
+}
+console.log(arr.icktWithIn(2, 5, 8), 222)
+</script>
+</body>
+</html>

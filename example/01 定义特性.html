@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var obj = {
+	color: 'red'
+}
+// 为对象的属性定义特性对象
+// Object.defineProperty(obj, 'num', {
+// 	// 定义值
+// 	// value: 100,
+// 	// // 是否可以修改
+// 	// writable: false,
+// 	// 是否可以被枚举
+// 	// enumerable: false,
+// 	enumerable: true,
+// 	// 是否可以再次被配置
+// 	configurable: true,
+// 	// configurable: false,
+// 	// 获取值的方法
+// 	get: function() {
+// 		// console.log(111)
+// 		// 绝对不能获取这个值
+// 		// return this.num
+// 		// 获取备用值
+// 		return this._num;
+// 	},
+// 	// 修改值的方法
+// 	set: function(val) {
+// 		// console.log(arguments)
+// 		// 绝对不能修改这个值
+// 		// this.num = val
+// 		// 修改备用值
+// 		this._num = val
+// 	}
+// })
+
+// 定义多个属性的特性
+Object.defineProperties(obj, {
+	// num设置特性
+	num: {
+		value: '100',
+		writable: false,
+		enumerable: false,
+		configurable: true
+	},
+	title: {
+		get: function() {
+			return this._title;
+		},
+		set: function(val) {
+			this._title = val
+		},
+		// 不能枚举
+		enumerable: false,
+		// 可以配置
+		configurable: true
+	}
+})
+
+// 再次配置
+// Object.defineProperty(obj, 'num', {
+// 	writable: true,
+// 	enumerable: true
+// })
+// 能否修改
+obj.num = 800;
+obj.color = 'green';
+obj.title = '爱创课堂'
+
+console.log(obj, obj.num, obj.title)
+// 遍历
+for (var i in obj) {
+	console.log(i, obj[i])
+}
+
+
+</script>
+</body>
+</html>

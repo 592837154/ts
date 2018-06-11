@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义常量
+// const PI = Math.PI;
+// PI = 100;
+// console.log(PI)
+
+// 函数作用域
+// function demo() {
+// 	const COLOR = 'red';
+// }
+// demo();
+// 块作用域
+// if (true) {
+// 	const COLOR = 'red';
+// }
+// console.log(COLOR)
+
+// 重复定义
+// const NUM = 100;
+// const NUM = 200;
+
+// 声明前置
+// console.log(NUM);
+// const NUM = 100;
+
+// 循环变量
+// for (const i = 0; i < 5; i++) {
+// 	console.log(i)
+// }
+
+// 不能是引用类型的值
+// const OBJ = {
+// 	color: "red",
+// 	num: 100
+// }
+// OBJ.color = 'green'
+// console.log(OBJ)
+
+// ES5模拟
+var OBJ = {
+	COLOR: "red",
+	NUM: 100,
+	// 属性值是引用类型，就可以修改属性值
+	SIZE: {
+		WIDTH: 100,
+		HEIGHT: 200
+	}
+}
+// 冻结OBJ
+// Object.freeze(OBJ);
+// // 不能修改
+// OBJ.COLOR = 'green'
+// console.log(OBJ.COLOR)
+// OBJ.SIZE.WIDTH = 500;
+// console.log(OBJ.SIZE)
+
+// ES3.1版本实现
+var CONF = (function () {
+	// 存储数据
+	var data = {
+		COLOR: "red",
+		NUM: 100,
+		// 不能是引用类型的
+		SIZE: {
+			WIDTH: 100,
+			HEIGHT: 200
+		}
+	}
+	// 返回取值器
+	return function(key) {
+		// 返回数据
+		return data[key]
+	}
+})()
+console.log(CONF('COLOR'))
+console.log(CONF('NUM'))
+CONF('SIZE').HEIGHT = 20;
+console.log(CONF('SIZE'))
+</script>
+</body>
+</html>

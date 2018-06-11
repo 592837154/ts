@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var obj = {
+	color: 'red',
+	num: 100
+}
+// 查看是否封闭
+// console.log(Object.isSealed(obj))
+// // 封闭对象
+// Object.seal(obj)
+// // 查看是否封闭
+// console.log(Object.isSealed(obj))
+
+// 查看冻结
+console.log(Object.isFrozen(obj))
+// 冻结对象
+Object.freeze(obj)
+// 查看冻结
+console.log(Object.isFrozen(obj))
+
+// 对象有增删改查操作
+// 增
+obj.title = '爱创课堂';
+// 删
+delete obj.num;
+// 该
+obj.color = 'green';
+// 查
+console.log(obj, obj.color)
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div id="ickt"></div>
+<script type="text/javascript">
+// 定义字符串
+console.log('he\\nllo\\nickt')
+// 输出原始字符串
+console.log(String.raw`he\nllo\nickt`)
+// 简单实现raw
+String.icktRaw = function(str) {
+	// 匹配\n的正则
+	return str.replace(/\n/g, '\\n')
+}
+console.log(String.icktRaw('he\nllo\nickt'))
+</script>
+</body>
+</html>

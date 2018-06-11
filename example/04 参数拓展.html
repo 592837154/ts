@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 定义函数
+// ES6定义默认参数
+// function demo(color = 'blue') {
+// 	// 在后面操作color，要保证color有数据,所以要定义默认参数
+// 	// 1 使用 ||
+// 	// color = color || 'red'
+// 	// 2 ? :
+// 	// color = color === undefined ? 'red' : color
+// 	console.log(color)
+// }
+// // 测试
+// demo('green')
+// demo()
+// // 6个布尔值为假的数据
+// demo(0)
+// demo('')
+// demo(undefined)
+// demo(NaN)
+// demo(null)
+// demo(false)
+
+// 获取剩余参数
+function demo(arg1, arg2, ...arg) {
+	console.log(arg1, arg2, arg)
+}
+demo()
+demo(1)
+demo(1, 2)
+demo(1, 2, 3)
+demo(1, 2, 3, 4)
+demo(1, 2, 3, 4, 5)
+demo(1, 2, 3, 4, 5, 6)
+
+
+</script>
+</body>
+</html>

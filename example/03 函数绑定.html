@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button id="btn">demo</button>
+<script type="text/javascript">
+// 定义对象
+var obj = {
+	title: '爱创课堂'
+}
+// 定义函数
+function demo() {
+	console.log(this.title, 111, arguments)
+}
+// 执行函数
+// demo()
+// 改变作用域
+// demo.call(obj, 1, 2, 3)
+// 改变作用域的时候，我们不想执行
+// var fn = demo.bind(obj, 1, 2, 3)
+// console.log(fn)
+// 执行新的方法
+// fn(5, 6, 7)
+// 绑定事件
+var btn = document.getElementById('btn');
+// call和apply无法改变函数的作用域
+// btn.onclick = demo.call(obj, 1, 2, 3)
+// bind可以
+// btn.onclick = demo.bind(obj, 1, 2, 3)
+
+/**
+ * 函数的绑定
+ * 		函数作为参数传递的同时，可以存储函数的作用域
+ * @fn 		表示函数
+ * @context	表示作用域
+ * return 	改变作用域后的函数
+ **/ 
+function bind(fn, context) {
+	// 返回一个函数
+	return function() {
+		// 执行fn
+		fn.apply(context, arguments)
+	}
+}
+// var fn = bind(demo, obj)
+// fn(1, 2, 3)
+// 事件
+// btn.onclick = bind(demo, obj)
+
+/**
+ * 函数的柯理化
+ * 		一个接收多个参数的函数，我们一个一个传递参数，最后将剩余的参数传递并执行函数得到结果
+ * @fn 	传递的函数
+ * 从第二个参数开始，表示传递的参数
+ * 返回值是一个函数
+ ***/
+function curry(fn) {
+	// 从第二个参数开始，表示传递的参数，获取这些参数
+	var arg = Array.prototype.slice.call(arguments, 1)
+	// 返回一个新函数
+	return function() {
+		// 将arg与这里的argumetns拼接在一起
+		var addArg = Array.prototype.slice.call(arguments)
+		// 所有的参数
+		var allArgs = arg.concat(addArg)
+		// 执行fn
+		return fn.apply(null, allArgs)
+	}
+}
+
+// btn.onclick = curry(demo, 1, 2, 3)
+
+// function add(num1, num2) {
+// 	return num1 + num2;
+// }
+// // console.log(add(10, 20))
+// // 传递一个参数，返回10 + 参数
+// var add10 = curry(add, 10)
+// // function add10(num) {
+// // 	return 10 + num;
+// // }
+// console.log(add10(50))
+// // 传递一个参数，返回50 + 参数
+// var add50 = curry(add, 50)
+// console.log(add50(20))
+
+
+/**
+ * ES5 中bind方法的实现，就是通过函数的绑定 + 函数的柯理化实现的
+ * @fn 		绑定的函数
+ * @context 绑定的作用域
+ * 从第三个参数开始，表示传递的参数
+ * return 	新的函数，绑定了作用域，并接收了参数
+ ******/ 
+function bind(fn, context) {
+	// 从第三个参数开始，表示传递的参数
+	var arg = Array.prototype.slice.call(arguments, 2)
+	// 返回新的函数
+	return function() {
+		// 获取传递的参数
+		var addArg = Array.prototype.slice.call(arguments);
+		// 将两组参数，拼接在一起
+		var allArgs = arg.concat(addArg)
+		// 返回执行的结果
+		return fn.apply(context, allArgs)
+	}
+}
+// var fn = bind(demo, obj, 1, 2, 3);
+// 执行fn，传递参数
+// fn(5, 6, 7)
+btn.onclick = bind(demo, obj, 1, 2, 3)
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 作用域
+// 定义变量
+// function demo() {
+// 	var a = 100;
+// 	let b = 500;
+// }
+// // 执行函数
+// demo()
+// if (true) {
+// 	var a = 200;
+// 	// 支持块作用域
+// 	let b = 1000;
+// }
+// console.log(a, b)
+
+// 重复定义
+// var a = 10;
+// var a = 20;
+// let a = 10;
+// let a = 20;
+// console.log(a)
+
+// 声明前置
+// console.log(a)
+// var a = 100;
+// // let a = 200;
+// function demo() {
+// 	console.log(a)
+// 	// 定义变量
+// 	var a = 200;
+// }
+// demo()
+
+// 循环中使用
+var arr = [];
+// for (var i = 0; i < 5; i++) {
+// 	// arr[i] = function() {
+// 	// 	console.log(i)
+// 	// }
+// 	// ES5解决方案
+// 	arr[i] = (function(i) {
+// 		// 通过闭包解决
+// 		return function() {
+// 			console.log(i)
+// 		}
+// 	})(i)
+// }
+for (let i = 0; i < 5; i++) {
+	arr[i] = function() {
+		console.log(i)
+	}
+}
+arr[3]()
+</script>
+</body>
+</html>

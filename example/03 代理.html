@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 创建一个明星
+var star = {
+	name: '赵丽颖',
+	boyfriend: '小沈阳'
+}
+var starProxy = new Proxy(star, {
+	// 定义获取属性的方法
+	get: function(star, key, proxy) {
+		// console.log(this, arguments)
+		// 要保护隐私数据
+		if (key === 'boyfriend') {
+			// 不希望别人知道
+			return '不想告诉你'
+		}
+		// 返回明星的数据
+		return star[key]
+	},
+	color: 'red',
+	// 修改属性的方法
+	set: function(obj, key, value, proxy) {
+		// console.log(this, arguments)
+		// 隐私的数据，不能修改
+		if (key === 'boyfriend') {
+			console.log('你没有权利修改')
+			return;
+		}
+		// 修改数据
+		obj[key] = value;
+	}
+});
+
+// 修改数据
+starProxy.name = '小美女'
+starProxy.boyfriend = '尼古拉斯赵四'
+console.log(star)
+// 查看明星数据
+console.log(starProxy.name)
+console.log(starProxy.boyfriend)
+</script>
+</body>
+</html>

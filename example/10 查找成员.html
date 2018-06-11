@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 创建数组
+var arr = ['尼古拉斯赵四', '小沈阳', '宋小宝', '刘能'];
+
+// 为ie拓展方法
+if (!Array.prototype.find) {
+	// 实现find方法
+	Array.prototype.find = function(fn) {
+		// 遍历数组， this
+		for (var i = 0; i < this.length; i++) {
+			// 执行fn，结果为真表示找到了成员，返回这个成员
+			if (fn(this[i], i, this)) {
+				// 返回成员值
+				return this[i]
+			}
+		}
+	}
+}
+
+// 查找小沈阳
+// var result = arr.find(function(item, index, arr) {
+var result = arr.findIndex(function(item, index, arr) {
+	// console.log(arguments, this)
+	// 成员值是小沈阳
+	return item === '小沈阳1'
+})
+// console.log(arr.indexOf('小沈阳'))
+alert(result)
+</script>
+</body>
+</html>
